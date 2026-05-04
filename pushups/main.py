@@ -27,7 +27,7 @@ def detect_push_up(annotated, keypoints, is_down, count):
         l_angle = get_angle(left_shoulder, left_elbow, left_wrist)
         r_angle = get_angle(right_shoulder, right_elbow, right_wrist)
 
-        if l_angle < 100 and r_angle < 100 and not is_down:
+        if l_angle < 110 and r_angle < 110 and not is_down:
             is_down = True
         
         if l_angle > 145 and r_angle > 145 and is_down:
