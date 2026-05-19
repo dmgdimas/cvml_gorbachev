@@ -14,7 +14,6 @@ if __name__ == "__main__":
     model.load_state_dict(torch.load('unet_road.pth'))
     
     img, mask = ds[0]
-    img, mask = img, mask
 
     result = model(img.unsqueeze(0))
 
@@ -26,13 +25,13 @@ if __name__ == "__main__":
 
     plt.subplot(131)
     plt.imshow(mask)
-    plt.title('orig')
+    plt.title('original')
     plt.subplot(132)
     plt.imshow(result)
     plt.title('result')
     plt.subplot(133)
     plt.imshow(mask - result)
-    plt.title('diff')
+    plt.title('difference')
     
     plt.savefig('compare.png')
     plt.show()
