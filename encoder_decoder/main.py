@@ -6,8 +6,8 @@ for curr_mode in [1, 2, 3, 4]:
     encoder = Encoder()
     decoder = Decoder()
 
-    encoder.load_state_dict(torch.load(f"encoder_{curr_mode}.pth"))
-    decoder.load_state_dict(torch.load(f"decoder_{curr_mode}.pth"))
+    encoder.load_state_dict(torch.load(f"encoder_{curr_mode}.pth", map_location=torch.device('cpu')))
+    decoder.load_state_dict(torch.load(f"decoder_{curr_mode}.pth", map_location=torch.device('cpu')))
 
     dataset = ImageDataset(10, 256, mode=curr_mode)
     image, _ = dataset[0]
